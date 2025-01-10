@@ -19,5 +19,12 @@ public partial class MainWindow : Window {
         InitializeComponent();
     }
 
-   
+
+    private void AddButton_OnClick(object sender, RoutedEventArgs e) {
+        throw new NotImplementedException();
+    }
+
+    private void RemoveButton_OnClick(object sender, RoutedEventArgs e) {
+        throw new NotImplementedException();
+    }
 }
