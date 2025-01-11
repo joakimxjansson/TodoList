@@ -68,9 +68,10 @@ public partial class MainWindow : Window
     }
 
     private void ClearlistButton_OnClick(object sender, RoutedEventArgs e) {
-        
-        _classlistTodo.ClearTasks();
-        UpdateTaskList();
-        MessageBox.Show("Lista rensad!");
+        if (!TasksListBox.Items.IsEmpty) {
+            _classlistTodo.ClearTasks();
+            UpdateTaskList();
+            MessageBox.Show("Lista rensad!");
+        }
     }
 }
