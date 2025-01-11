@@ -59,8 +59,22 @@ namespace TestingToDoList
             
         }
 
+        [Fact]
+        public void IsListShowingCorrectly() {
+            var task1 = "Test task1"; //Skapar task 
+            var task2 = "Test task2"; //Skapar task 
+            var task3 = "Test task3"; //Skapar task 
+            _classlistTodo.AddTask(task1); // Lägger task1 på index 0
+            _classlistTodo.AddTask(task2); // Lägger task2 på index 1
+            _classlistTodo.AddTask(task3); // Lägger task3 på index 2
+            var tasks = _classlistTodo.GetAllTasks(); //hämtar listan på alla tasks
+            Assert.Equal(task1, tasks[0]); 
+            Assert.Equal(task2, tasks[1]);
+            Assert.Equal(task3, tasks[2]);
 
 
+        }
+        
 
     }
 }
