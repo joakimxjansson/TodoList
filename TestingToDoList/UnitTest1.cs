@@ -41,5 +41,26 @@ namespace TestingToDoList
             Assert.Single(tasks); 
         }
         
+        
+        [Fact]
+        public void ClearTasks_ShouldClearTasks()
+        {
+            var task = "Test task"; //Skapar task 
+            _classlistTodo.AddTask(task); //Lägger Test Task på index 0
+            _classlistTodo.ClearTasks(); // Rensar Listan
+            var tasks = _classlistTodo.GetAllTasks(); //Visar listan på alla tasks
+            Assert.DoesNotContain(task, tasks);
+        }
+        [Fact]
+        public void ClearTasks_EmptyList_ShouldNotThrowException() {
+            _classlistTodo.ClearTasks(); //Rensar listan utan att listan har tilldelats något item innan
+            var tasks = _classlistTodo.GetAllTasks(); //Visar listan
+            Assert.Empty(tasks);
+            
+        }
+
+
+
+
     }
 }
