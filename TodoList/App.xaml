@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:TodoList"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#E0E0E0"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#7249e9"/>
+
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="#333333"/>
+        </Style>
     </Application.Resources>
 </Application>

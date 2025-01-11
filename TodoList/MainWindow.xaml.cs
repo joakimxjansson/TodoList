@@ -14,6 +14,7 @@ namespace TodoList;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
+
 public partial class MainWindow : Window 
 {
     private ClasslistTodo _classlistTodo;
@@ -23,17 +24,26 @@ public partial class MainWindow : Window
         _classlistTodo = new ClasslistTodo();
     }
     
+/// <summary>
+/// Eventhandler för att lägga till todo-items
+/// </summary>
 
     private void AddButton_OnClick(object sender, RoutedEventArgs e) {
         string task = TaskTextBox.Text;
         if (!string.IsNullOrEmpty(task)) {
-            
-            _classlistTodo.AddTask(task);
-        UpdateTaskList();
-        TaskTextBox.Clear();
-        }
-    }
 
+            _classlistTodo.AddTask(task);
+            UpdateTaskList();
+            TaskTextBox.Clear();
+        } else 
+        {
+            MessageBox.Show("Skriv något för att lägga till");
+        }
+
+    }
+/// <summary>
+/// Metod för att uppdatera Listbox
+/// </summary>
     private void UpdateTaskList() 
     {
         TasksListBox.Items.Clear();
@@ -42,13 +52,25 @@ public partial class MainWindow : Window
         }
         
     }
+/// <summary>
+/// Eventhandler för ta bort från todo-items
+/// </summary>
 
     private void RemoveButton_OnClick(object sender, RoutedEventArgs e) 
+    
     {
         if (TasksListBox.SelectedIndex >=0) {
             _classlistTodo.RemoveTask(TasksListBox.SelectedIndex);
             UpdateTaskList();
+        } else {
+            MessageBox.Show("Markera önskat item för att ta bort från listan");
         }
     }
-    
+
+    private void ClearlistButton_OnClick(object sender, RoutedEventArgs e) {
+        
+        _classlistTodo.ClearTasks();
+        UpdateTaskList();
+        MessageBox.Show("Lista rensad!");
+    }
 }

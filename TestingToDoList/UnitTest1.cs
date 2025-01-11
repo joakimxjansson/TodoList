@@ -15,31 +15,31 @@ namespace TestingToDoList
         [Fact]
         public void AddTask_ShouldAddTaskToList()
         {
-            var task = "Test task";
-            _classlistTodo.AddTask(task);
-            var tasks = _classlistTodo.GetAllTasks();
+            var task = "Test task"; // Skapar task
+            _classlistTodo.AddTask(task); // Lägger till task på index 0
+            var tasks = _classlistTodo.GetAllTasks(); // visar listan på alla tasks.
             Assert.Contains(task, tasks);
         }
 
         [Fact]
         public void RemoveTask_ShouldRemoveTaskToList() 
         {
-            var task = "Task to remove";
-            _classlistTodo.AddTask(task);
-            _classlistTodo.RemoveTask(0);
-            var tasks = _classlistTodo.GetAllTasks();
+            var task = "Task to remove"; //Skapar task
+            _classlistTodo.AddTask(task); // Lägger till task på index 0
+            _classlistTodo.RemoveTask(0); //Tar bort task på index 0
+            var tasks = _classlistTodo.GetAllTasks(); // visar listan på alla tasks.
             Assert.DoesNotContain(task, tasks);
         }
 
         [Fact]
         public void RemoveTask_InvalidIndex_ShouldNotThrowException()
         {
-            var task = "valid task";
-            _classlistTodo.AddTask(task);
-            _classlistTodo.RemoveTask(8); // invalid index
-
-            var tasks = _classlistTodo.GetAllTasks();
-            Assert.Single(tasks); // den ursprungliga uppgiften ska fortfarande finnas kvar
+            var task = "valid task"; //Skapar task 
+            _classlistTodo.AddTask(task); //Lägger valid task på index 0
+            _classlistTodo.RemoveTask(1); // tar bort task på index 1 som ej finns.
+            var tasks = _classlistTodo.GetAllTasks(); // visar listan på alla tasks.
+            Assert.Single(tasks); 
         }
+        
     }
 }
